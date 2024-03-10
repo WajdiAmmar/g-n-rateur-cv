@@ -1,0 +1,223 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .top {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+
+}
+
+.bottom {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top:20px;
+}
+.right {
+  float: right;
+  width: 50%;
+}
+
+.h {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.top,
+.bottom {
+  text-align: center;
+}
+
+.top input[type="radio"],
+.bottom input[type="radio"] {
+  display: none;
+}
+
+.top label,
+.bottom label {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.top label img,
+.bottom label img {
+  width: 230px;
+  height: 330px;
+  border: 2px solid transparent; /* Bordure transparente par défaut */
+}
+
+/* Style pour mettre en évidence la sélection */
+input[type="radio"]:checked + .image-label img {
+  border-color: #c9a028; /* Modifier la couleur de la bordure lorsque l'image est sélectionnée */
+}
+.top label img,
+.bottom label img {
+  width: 230px;
+  height: 330px;
+  border: 3px solid transparent; /* Bordure transparente par défaut */
+  transition: transform 0.3s; /* Ajouter une transition pour une animation fluide */
+}
+
+/* Style pour agrandir l'image au survol */
+.top label img:hover,
+.bottom label img:hover {
+  transform: scale(1.1); /* Agrandir l'image de 10% */
+}
+
+.photo {
+    width: 80%; /* Ajustez la largeur des photos selon vos besoins */
+    height: 50%;
+}
+.head{
+    background-color: #02818c; /* Couleur de fond de l'en-tête */
+    color: #fff; /* Couleur du texte */
+    padding: 25px 0; /* Espacement intérieur en haut et en bas */
+    display: flex; /* Utilisation de flexbox pour positionner les éléments côte à côte */
+    width: 100%;
+    margin: 0;
+    align-items: center;
+}
+nav ul {
+    list-style: none; /* Supprimer les puces de liste */
+    margin: 0; /* Supprimer les marges par défaut */
+    padding: 0; /* Supprimer les marges intérieures par défaut */
+    
+}
+
+nav ul li {
+    display: inline; /* Afficher les éléments de liste en ligne */
+    margin-left:180px;
+}
+
+
+nav ul li a {
+    display: inline;
+    text-decoration:underline; /* Supprimer la soulignement des liens */
+    color: #fff; /* Couleur du texte des liens */
+    font-weight: bold;
+    font-family: ' serif';
+}
+#t1{
+    margin: 0; /* Supprimer les marges par défaut */
+    margin-left: 35px;
+}
+
+  form {
+    max-width: 800px;
+    margin: 0 ;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-top: -180px;
+  }
+h1 {
+    text-align: center;
+    margin-top: 0;
+    
+  }
+  #t2{
+ margin-bottom: 200px;
+ font-size: 40px;
+ margin-left: -100px;
+  }
+  fieldset {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fff;
+  }
+  legend {
+    font-weight: bold;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="file"],
+  select,
+  textarea {
+    width: calc(100% - 12px);
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  #preview {
+    margin-top: 10px;
+    max-width: 100%;
+    display: none;
+  }
+  #btn{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #02818c; /* couleur de fond */
+    color: white; /* couleur du texte */
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    margin-top: 8%;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 8px 8px 10px #919090 /* ombre */
+  }
+  
+  #btn:hover {
+    background-color: hsl(189, 63%, 76%); /* couleur de fond au survol */
+  }
+  .left, .right {
+    width: 50%; /* Chaque partie occupe 50% de la largeur de la page */
+    padding: 20px; /* Ajout de marges intérieures pour un meilleur espacement */
+    background-color:  #e8fcfc	;
+  
+
+}
+.right {
+    
+    margin-bottom: 45%; /* Couleur de fond pour la partie droite */
+
+}
+.left{
+  margin-bottom:20px
+}
+.container {
+    width: 80%; /* Largeur de la zone du contenu */
+    margin: 0 auto; /* Centrage horizontale */
+    display: flex; /* Utilisation de flexbox pour aligner les éléments */
+    justify-content: space-between; /* Alignement des éléments sur les extrémités */
+    align-items: center; /* Alignement vertical au centre */
+    flex-wrap: nowrap;
+    background-color:  #E0FFFF	;
+    margin-top: 15px;
+   
+}
+#titre{
+    font-weight: 800;
+    color: #000000;
+    font-size: 55px;
+}
+

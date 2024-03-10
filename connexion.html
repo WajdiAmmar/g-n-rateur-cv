@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Connexion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background-color: #02818c;;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+
+        .signup-link a {
+            color: #02818c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo img {
+            width: 100px;
+            height: auto;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo">
+        </div>
+        <h2>Connexion</h2>
+        <form action="connect.php" method="POST" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="username">Nom d'utilisateur:</label>
+                <input type="text" id="username" name="email">
+                <div id="usernameError" class="error-message"></div>
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe:</label>
+                <input type="password" id="password" name="mot_de_passe">
+                <div id="passwordError" class="error-message"></div>
+            </div>
+            <div class="form-group">
+                <button type="submit">Se Connecter</button>
+            </div>
+        </form>
+        <div class="signup-link">
+            <p>Vous n'avez pas de compte? <a href="inscri.html">S'inscrire</a></p>
+        </div>
+    </div>
+    <script>
+        function validateForm() {
+            var username = document.getElementById('username').value.trim();
+            var password = document.getElementById('password').value.trim();
+            var valid = true;
+
+            // Validation du nom d'utilisateur
+            if (username === "") {
+                document.getElementById('usernameError').innerHTML = 'Le nom d\'utilisateur est requis.';
+                valid = false;
+            } else {
+                document.getElementById('usernameError').innerHTML = '';
+            }
+
+            // Validation du mot de passe
+            if (password === "") {
+                document.getElementById('passwordError').innerHTML = 'Le mot de passe est requis.';
+                valid = false;
+            } else {
+                document.getElementById('passwordError').innerHTML = '';
+            }
+
+            return valid;
+        }
+    </script>
+</body>
+</html>

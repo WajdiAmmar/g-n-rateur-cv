@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulaire de CV professionnel</title>
+<link rel="stylesheet" href="form.css">
+<style>
+
+body {
+            font-family: "Arial", sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .color-picker {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        .color-label {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-right: 10px;
+            overflow: hidden;
+        }
+
+        .color-input {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        .color-input:checked + .color-label {
+            border: 2px solid black; /* Ajouter une bordure noire lorsque le radio est sélectionné */
+        }
+
+</style>
+
+</head>
+<body>
+<header>
+    <div style="padding: 15px 0;"class="head">
+      <h1 style=" margin-left:35px; margin-top: 35px;">Générateur de</h1> <img style="width: 70px; margin-bottom: 0px; margin-top: 0px;" src="images/logo.png" alt="cv en ligne">
+        <nav>
+            <ul>
+                <li><a href="accueil.html">Accueil</a></li>
+                <li><a href="#">Créer un CV</a></li>
+                <li><a href="#">Modèles</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+  <div class="left">
+    <h1 id="t2">Remplir le Formulaire </h1>
+    <form action='cv.php' method="post" enctype="multipart/form-data">
+      <fieldset>
+        <legend>Informations personnelles</legend>
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+    
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" required>
+    
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required>
+    
+        <label for="telephone">Téléphone :</label>
+        <input type="tel" id="telephone" name="telephone">
+    
+        <label for="adresse">Adresse :</label>
+        <input type="text" id="adresse" name="adresse">
+        
+        <label for="photo">Photo :</label>
+        <input type="file" id="photo" name="photoBase64" accept="image/*" onchange="previewImage(event)">
+        <img id="preview" src="" alt="Photo Preview">
+      </fieldset>
+
+      <fieldset>
+        <legend>Description</legend>
+        <label for="description">Description :</label>
+        <textarea id="description" name="description" rows="5"></textarea>
+      </fieldset>
+
+      <fieldset>
+        <legend>Expérience professionnelle</legend>
+        <label for="experience">Expérience :</label>
+        <textarea id="experience" name="experience" rows="5"></textarea>
+      </fieldset>
+      
+      <fieldset>
+        <legend>Formation</legend>
+        <label for="formation">Formation :</label>
+        <textarea id="formation" name="formation" rows="5"></textarea>
+      </fieldset>
+      
+      <fieldset>
+        <legend>Compétences</legend>
+        <label for="competences">Compétences :</label>
+        <textarea id="competences" name="competences" rows="5"></textarea>
+      </fieldset>
+
+      <fieldset>
+        <legend>Langues</legend>
+        <label for="langues">Langues :</label>
+        <textarea id="langues" name="langues" rows="5"></textarea>
+      </fieldset>
+      <fieldset>
+        <legend>Centres d'intérêt</legend>
+        <label for="ci">Centres d'intérêt</label>
+        <textarea id="ci" name="centresInteret" rows="5"></textarea>
+      </fieldset>
+
+      
+      
+      <input id="btn" type="submit" value="Soumettre" onclick="verif()">
+
+  </div>
+  <div class="right">
+    <h1 style="margin-top: -200px; font-size: 60px;">Choisissez un de <span style="color:#c9a028;">nos modèles</span></h1>
+    <div class="top">
+      <input type="radio" name="image" id="image1" value="cv4.jpg" checked>
+      <label for="image1" class="image-label">
+        <img src="images/cv3.jpg" alt="Image 1">
+      </label><br>
+      <input type="radio" name="image" id="image2" value="cv1.jpg">
+      <label for="image2" class="image-label">
+        <img src="images/cv1.jpg" alt="Image 2">
+      </label><br>
+    </div>
+  
+    <div class="bottom">
+      <input type="radio" name="image" id="image3" value="cv2.jpg">
+      <label for="image3" class="image-label">
+        <img src="images/cv2.jpg" alt="Image 3">
+      </label><br>
+      <input type="radio" name="image" id="image4" value="cv3.jpg">
+      <label for="image4" class="image-label">
+        <img src="images/cv4.jpg" alt="Image 4">
+      </label><br>
+    </div>
+<br>
+<div class="color-picker">
+  <div class="color-picker">
+    <input type="radio" id="color1" class="color-input" name="color" value="#2B2B2B">
+    <label for="color1" class="color-label" style="background-color: #2B2B2B;"></label>
+  
+    <input type="radio" id="color2" class="color-input" name="color" value="#1da5c0">
+    <label for="color2" class="color-label" style="background-color: #1da5c0;"></label>
+  
+    <input type="radio" id="color3" class="color-input" name="color" value="#ba475a">
+    <label for="color3" class="color-label" style="background-color: #ba475a;"></label>
+  </div>
+  
+
+  </div>
+
+
+ 
+  </div>
+</form>
+<script>
+function previewImage(event) {
+  var preview = document.getElementById('preview');
+  var file = document.getElementById('photo').files[0];
+  var reader = new FileReader();
+
+  reader.onloadend = function () {
+    preview.src = reader.result;
+    preview.style.display = 'block';
+  }
+
+  if (file) {
+    reader.readAsDataURL(file);
+  } else {
+    preview.src = '';
+    preview.style.display = 'none';
+  }
+}
+function verif() {
+  // Liste des IDs des champs du formulaire
+  var fieldIds = ['nom', 'prenom', 'email', 'telephone', 'adresse', 'description', 'experience', 'formation', 'competences', 'langues', 'ci'];
+
+  // Vérifier si tous les champs sont remplis
+  var allFieldsFilled = true;
+  fieldIds.forEach(function (fieldId) {
+    var field = document.getElementById(fieldId);
+    if (!field.value.trim()) {
+      allFieldsFilled = false;
+      field.style.border = '1px solid red'; // Bordure rouge pour indiquer l'erreur
+    } else {
+      field.style.border = ''; // Réinitialiser la bordure
+    }
+  });
+
+  // Si tous les champs sont remplis, soumettre le formulaire
+  if (allFieldsFilled) {
+    document.querySelector('form').submit();
+  } else {
+    alert('Veuillez remplir tous les champs obligatoires.'); // Afficher un message d'erreur
+  }
+}
+
+</script>
+
+</body>
+</html>
